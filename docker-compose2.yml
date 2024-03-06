@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  systemb:
+    build: .
+    ports:
+     - 81:80
+    networks:
+      - b-net
+  db-b:
+    image: mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ALLOW_EMPTY_ROOT_PASSWORD: 'yes'
+    networks:
+      - b-net
+networks:
+  b-net:
+
+
